@@ -10,6 +10,8 @@ import {
   ListItemText,
   CircularProgress,
   Alert,
+  Divider,
+  Stack,
 } from "@mui/material";
 
 const Home = () => {
@@ -26,9 +28,17 @@ const Home = () => {
       {!loading && !error && (
         <List>
           {books.map((book) => (
-            <ListItem key={book.id}>
-              <ListItemText primary={book.title} secondary={`ID: ${book.id}`} />
-            </ListItem>
+            <Stack key={book.id}>
+              <ListItem key={book.id}>
+                <ListItemText
+                  primary={book.title}
+                  secondary={`ID: ${book.id}`}
+                  slotProps={{ secondary: { color: "#555" } }}
+                />
+              </ListItem>
+
+              <Divider sx={{ borderColor: "#fff2" }} component="li" />
+            </Stack>
           ))}
         </List>
       )}
