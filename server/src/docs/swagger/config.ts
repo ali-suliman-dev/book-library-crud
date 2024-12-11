@@ -7,8 +7,8 @@ const config = {
   },
   servers: [
     {
-      url: "http://localhost:3000",
-      description: "Local server",
+      url: "http://localhost:8080",
+      description: "Local development server",
     },
   ],
   paths: {
@@ -80,6 +80,67 @@ const config = {
           },
         },
       },
+      put: {
+        summary: "Update a book by ID",
+        parameters: [
+          {
+            in: "path",
+            name: "id",
+            required: true,
+            schema: {
+              type: "integer",
+            },
+            description: "The ID of the book to update",
+          },
+        ],
+        requestBody: {
+          required: true,
+          content: {
+            "application/json": {
+              schema: {
+                $ref: "#/components/schemas/Book",
+              },
+            },
+          },
+        },
+        responses: {
+          200: {
+            description: "Book updated successfully",
+            content: {
+              "application/json": {
+                schema: {
+                  $ref: "#/components/schemas/Book",
+                },
+              },
+            },
+          },
+          404: {
+            description: "Book not found",
+          },
+        },
+      },
+      delete: {
+        summary: "Delete a book by ID",
+        parameters: [
+          {
+            in: "path",
+            name: "id",
+            required: true,
+            schema: {
+              type: "integer",
+            },
+            description: "The ID of the book to delete",
+          },
+        ],
+        responses: {
+          200: {
+            description: "Book deleted successfully",
+          },
+          404: {
+            description: "Book not found",
+          },
+        },
+      },
     },
   },
   components: {
@@ -95,15 +156,8 @@ const config = {
             type: "string",
             description: "The title of the book",
           },
-          author: {
-            type: "string",
-            description: "The author of the book",
-          },
-          year: {
-            type: "integer",
-            description: "The publication year of the book",
-          },
         },
+        required: ["title"],
       },
     },
   },
