@@ -4,12 +4,12 @@ export const seedBooks = async () => {
   try {
     await pool.query(`INSERT INTO books (title)
       VALUES
-          ('Atomic Habits');
+          ('Atomic Habits'),
           ('The Richest Man in Babylon'),
           ('The Psychology of Money'),
-          ('Pride and Prejudice');
-          ('The Art of War');
-          ('The Great Gatsby');
+          ('Pride and Prejudice'),
+          ('The Art of War'),
+          ('The Great Gatsby'),
           ('1984');
       `);
 
