@@ -21,7 +21,7 @@ export const initDB = async () => {
       console.log("Books table already has data. Skipping seed.");
     }
   } catch (e) {
-    console.log("- Error in initializing database: ", e);
+    console.error("- Error in initializing database: ", e);
     throw new Error("- Database initialization failed");
   }
 };

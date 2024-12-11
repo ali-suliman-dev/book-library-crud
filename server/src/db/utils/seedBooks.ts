@@ -15,7 +15,7 @@ export const seedBooks = async () => {
 
     console.log("+ Successfully seeded books data");
   } catch (e) {
-    console.log("- Error in seeding data: ", e);
+    console.error("- Error in seeding data: ", e);
     throw new Error("- Seeding data failed");
   }
 };
